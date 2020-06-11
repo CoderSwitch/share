@@ -44,6 +44,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -54,10 +55,8 @@ class User extends Authenticatable
         return "http://www.gravatar.com/avatar/$hash?s=$size";
     }
 
-
-    //用户一对多的关系，一个用户可以包含多条微博
     public function statuses()
     {
-        $this->hasMany('App\Models\Status');
+        return $this->hasMany('App\Models\Status');
     }
 }
